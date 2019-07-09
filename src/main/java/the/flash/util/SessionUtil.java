@@ -12,6 +12,7 @@ public class SessionUtil {
 
     public static void bindSession(Session session, Channel channel) {
         userIdChannelMap.put(session.getUserId(), channel);
+        // 为该channel添加一个key-value
         channel.attr(Attributes.SESSION).set(session);
     }
 

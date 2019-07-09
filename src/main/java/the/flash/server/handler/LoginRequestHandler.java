@@ -23,6 +23,7 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
             String userId = randomUserId();
             loginResponsePacket.setUserId(userId);
             System.out.println("[" + loginRequestPacket.getUserName() + "]登录成功");
+            // 登录成功存储session和channel到map中
             SessionUtil.bindSession(new Session(userId, loginRequestPacket.getUserName()), ctx.channel());
         } else {
             loginResponsePacket.setReason("账号密码校验失败");
